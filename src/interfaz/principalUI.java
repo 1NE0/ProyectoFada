@@ -8,6 +8,7 @@ package interfaz;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import logica.ConjuntosDeVerdad;
 import logica.ConjuntosLista;
 
 /**
@@ -23,13 +24,14 @@ public class principalUI extends javax.swing.JFrame {
     public ArrayList conjuntoA = new ArrayList();
     public ArrayList conjuntoB = new ArrayList();
     ConjuntosLista logicaConjuntoLista;
-    
+    ConjuntosDeVerdad logicaConjuntosDeVerdad;
     public principalUI() {
         initComponents();
         
         btnA.addActionListener(new addA());
         btnB.addActionListener(new addB());
         logicaConjuntoLista = new ConjuntosLista(conjuntoA, conjuntoB);
+        logicaConjuntosDeVerdad = new ConjuntosDeVerdad();
     }
 
     /**
@@ -43,7 +45,6 @@ public class principalUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        comoListas = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -60,8 +61,6 @@ public class principalUI extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         txtB = new javax.swing.JTextField();
         btnB = new javax.swing.JButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -72,6 +71,7 @@ public class principalUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtInterseccion = new javax.swing.JLabel();
+        comboTipo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,8 +97,6 @@ public class principalUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
-
-        comoListas.setText("Conjuntos como listas");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -138,7 +136,7 @@ public class principalUI extends javax.swing.JFrame {
                 .addComponent(txtConjuntoA)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtA, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,12 +219,8 @@ public class principalUI extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addComponent(txtConjuntoB)
                         .addComponent(jLabel9)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jRadioButton2.setText("representación binaria");
-
-        jRadioButton3.setText("Conjunto como arreglos (valores de verdad)");
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 255));
 
@@ -290,7 +284,7 @@ public class principalUI extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addGap(61, 61, 61)
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addComponent(txtInterseccion)
                 .addGap(133, 133, 133)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,6 +302,9 @@ public class principalUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "conjuntos como listas", "conjuntos con valores de verdad", "representacion binaria", " " }));
+        comboTipo.setSelectedIndex(2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -316,36 +313,28 @@ public class principalUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comoListas)
-                        .addGap(36, 36, 36)
-                        .addComponent(jRadioButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboTipo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(comoListas))
-                .addGap(65, 65, 65)
+                .addGap(70, 70, 70)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
@@ -372,7 +361,7 @@ public class principalUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnA;
     private javax.swing.JButton btnB;
-    private javax.swing.JRadioButton comoListas;
+    private javax.swing.JComboBox<String> comboTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -393,8 +382,6 @@ public class principalUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JTextField txtA;
     private javax.swing.JTextField txtB;
     private javax.swing.JLabel txtConjuntoA;
@@ -410,7 +397,9 @@ public class principalUI extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent ae) {
             // logica de agregar elemento al conjunto
             short numeroA = Short.parseShort(txtA.getText());
-            if(comoListas.isSelected()){
+            
+            
+            if(comboTipo.getSelectedIndex() == 0){ // CONJUNTOS COMO LISTAS
                 logicaConjuntoLista.addA(numeroA);
                 txtConjuntoA.setText(logicaConjuntoLista.toStringA());
                 // actualizar 
@@ -419,6 +408,12 @@ public class principalUI extends javax.swing.JFrame {
                 //txtUnion.setText(logicaConjuntoLista.union());
                 // interseccion
                 txtInterseccion.setText(logicaConjuntoLista.interseccion());
+            }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
+                logicaConjuntosDeVerdad.addA(numeroA);
+                // MOSTRAR EL CONJUNTOA
+                txtConjuntoA.setText(logicaConjuntosDeVerdad.conjuntoAtoString());
+                
+                txtUnion.setText(logicaConjuntosDeVerdad.union());
             }
             
             
@@ -433,13 +428,20 @@ public class principalUI extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent ae) {
             short numeroB = Short.parseShort(txtB.getText());
-            if(comoListas.isSelected()){
+            if(comboTipo.getSelectedIndex() == 0){
                 logicaConjuntoLista.addB(numeroB);
                 txtConjuntoB.setText(logicaConjuntoLista.toStringB());
                 // union
                 //txtUnion.setText(logicaConjuntoLista.union());
                 // interseccion
                 txtInterseccion.setText(logicaConjuntoLista.interseccion());
+            }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
+                logicaConjuntosDeVerdad.addB(numeroB);
+                // MOSTRAR EL CONJUNTOA
+                txtConjuntoB.setText(logicaConjuntosDeVerdad.conjuntoBtoString());
+                
+                txtUnion.setText(logicaConjuntosDeVerdad.union());
+                
             }
             
             

@@ -54,11 +54,7 @@ public class ConjuntosLista {
     
     
     public String union(){
-        ArrayList unido;
-        if(conjuntoA.size() > conjuntoB.size()){
-            
-        }
-        return resultadoString(unido);
+        return "";
         
     }
     
