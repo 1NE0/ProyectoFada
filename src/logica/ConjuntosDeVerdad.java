@@ -81,7 +81,7 @@ public class ConjuntosDeVerdad {
     
     public String union(){
         boolean conjuntoResultado[] = new boolean[21];
-        
+        System.out.println(conjuntoResultado);
         for(int i=0;i<conjuntoA.length;i ++){
             if(conjuntoA[i]){
                 if(!conjuntoResultado[i]){
@@ -106,4 +106,48 @@ public class ConjuntosDeVerdad {
     public String interseccion(){
         return "";
     }
+    
+    //usando or
+    public boolean[] arregloor(){
+        boolean conjuntoresultado[]= new boolean[21];
+        for(int i=0; i< conjuntoA.length;i++){
+            if((conjuntoA[i]== true) || (conjuntoB[i]==true)){
+                conjuntoresultado[i]=true;
+            }else{
+                conjuntoresultado[i]=false;
+            }
+        }
+        return conjuntoresultado;
+    }
+     public boolean[] arregloy(){
+        boolean conjuntoresultado[]= new boolean[21];
+        for(int i=0; i< conjuntoA.length;i++){
+            if((conjuntoA[i]== true) && (conjuntoB[i]==true)){
+                conjuntoresultado[i]=true;
+            }else{
+                conjuntoresultado[i]=false;
+            }
+        }
+        return conjuntoresultado;
+    }
+    
+    
+    public int[] arreglopos(){
+        int[] resultado= new int[21];
+        boolean[] b2 = arregloor();
+        int contador=0;
+        for(int i=0;i<b2.length;i++){
+            if(b2[i]==true){
+                resultado[contador] = i;
+                
+                contador++;
+            }
+        }
+        
+        
+        return resultado;
+    }
+    
+    
+    
 }

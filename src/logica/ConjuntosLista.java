@@ -39,10 +39,22 @@ public class ConjuntosLista {
         String resultado = "";
         for(Object numero : conjuntoA) {
             resultado += " " + numero + "";
+            System.out.println(resultado);
+            
         }
         
         return resultado;
     } 
+    
+    
+    public String ver(){
+        String resultado="";
+        for(int i=0;i<conjuntoA.size();i++){
+            resultado =  resultado + " " + conjuntoA.get(i) + "" ;
+               System.out.println(resultado);
+        }
+        return resultado;
+    }
     
     public String toStringB(){
         String resultado = "";
