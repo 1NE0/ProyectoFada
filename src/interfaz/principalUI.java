@@ -8,6 +8,7 @@ package interfaz;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import logica.Conjuntobinario;
 import logica.ConjuntosDeVerdad;
 import logica.ConjuntosLista;
 
@@ -25,6 +26,7 @@ public class principalUI extends javax.swing.JFrame {
     public ArrayList conjuntoB = new ArrayList();
     ConjuntosLista logicaConjuntoLista;
     ConjuntosDeVerdad logicaConjuntosDeVerdad;
+    Conjuntobinario logicaBinaria;
     public principalUI() {
         initComponents();
         
@@ -32,6 +34,7 @@ public class principalUI extends javax.swing.JFrame {
         btnB.addActionListener(new addB());
         logicaConjuntoLista = new ConjuntosLista(conjuntoA, conjuntoB);
         logicaConjuntosDeVerdad = new ConjuntosDeVerdad();
+        logicaBinaria = new Conjuntobinario();
     }
 
     /**
@@ -408,12 +411,17 @@ public class principalUI extends javax.swing.JFrame {
                 //txtUnion.setText(logicaConjuntoLista.union());
                 // interseccion
                 txtInterseccion.setText(logicaConjuntoLista.interseccion());
+                txtUnion.setText(logicaConjuntoLista.union());
             }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
                 logicaConjuntosDeVerdad.addA(numeroA);
                 // MOSTRAR EL CONJUNTOA
                 txtConjuntoA.setText(logicaConjuntosDeVerdad.conjuntoAtoString());
                 
-                txtUnion.setText(logicaConjuntosDeVerdad.union());
+                txtUnion.setText(logicaConjuntosDeVerdad.arregloor());
+                txtInterseccion.setText(logicaConjuntosDeVerdad.arregloy());
+            }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
+                logicaBinaria.agregarnum(numeroA);
+                // MOSTRAR EL CONJUNTOA
             }
             
             
@@ -435,12 +443,16 @@ public class principalUI extends javax.swing.JFrame {
                 //txtUnion.setText(logicaConjuntoLista.union());
                 // interseccion
                 txtInterseccion.setText(logicaConjuntoLista.interseccion());
+                txtUnion.setText(logicaConjuntoLista.union());
             }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
                 logicaConjuntosDeVerdad.addB(numeroB);
                 // MOSTRAR EL CONJUNTOA
                 txtConjuntoB.setText(logicaConjuntosDeVerdad.conjuntoBtoString());
                 
-                txtUnion.setText(logicaConjuntosDeVerdad.union());
+                txtUnion.setText(logicaConjuntosDeVerdad.arregloor());
+                txtInterseccion.setText(logicaConjuntosDeVerdad.arregloy());
+                
+            }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
                 
             }
             

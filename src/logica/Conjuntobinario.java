@@ -18,7 +18,21 @@ public class Conjuntobinario {
      this.b= new int [16];  
     }
     
-    
+    public String convertidor(String cadena){
+        int contador = 1;
+        String resultado = "";
+        
+        for(int i = cadena.length(); i > 0;i--){
+            if(cadena.substring(i - 1).equals("1")){
+                System.out.println("entro al if");
+                resultado += contador;
+                resultado += " ";
+            }
+            contador++;
+        }
+        
+        return resultado;
+    }
     
     public void agregarnum(int a){
         int posarreglo = a/32;
@@ -29,8 +43,19 @@ public class Conjuntobinario {
         this.a[(this.a.length -posarreglo)-1] = this.a[(this.a.length -posarreglo)-1] << desplazamientos;  
         this.a[(this.a.length -posarreglo)-1]= this.a[(this.a.length -posarreglo)-1]  | numeroanterior;
         
+        String resultado = "";
+        for(int o : this.a){
+                resultado += Integer.toBinaryString(o);
+        }
+        
+        System.out.println("resultado en binario : " + resultado);
+        
+       
+        System.out.println("posicion : "+convertidor(resultado));
+        
     }
 
+    
     public int[] getA() {
         return a;
     }

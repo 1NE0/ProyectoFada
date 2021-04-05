@@ -24,15 +24,11 @@ public class main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-       Conjuntobinario conjun= new Conjuntobinario();
-      conjun.agregarnum(4);
-      conjun.agregarnum(35);
-       conjun.agregarnum(2);
-      
-        int[] aa= conjun.getA();
-       for(int i=0; i<aa.length; i++){
-           System.out.println(aa[i]);
-}  
+       
+       principalUI principal = new principalUI();
+       principal.setVisible(true);
+       
+       
     }
     
   

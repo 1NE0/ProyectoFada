@@ -66,7 +66,35 @@ public class ConjuntosLista {
     
     
     public String union(){
-        return "";
+        ArrayList uniones = new ArrayList();
+        System.out.println("conjunto A: " + toStringA());
+        System.out.println("conjunto B: " + toStringB());
+        for(Object numero : conjuntoB){
+            if(conjuntoA.contains(numero)&& !(uniones.contains(numero))){
+                uniones.add(numero);
+                System.out.println("se agrego:"+ numero);
+            }if(!(conjuntoA.contains(numero))&& !(uniones.contains(numero))){
+                uniones.add(numero);
+                System.out.println("se agrego:"+ numero);
+            }else{
+                
+                //System.out.println("no se agrego"+ numero);
+            }
+        }
+        for(Object numero : conjuntoA){
+            if(!(uniones.contains(numero))){
+                uniones.add(numero);
+                System.out.println("se agrego" + numero);
+            }
+            
+                
+            }
+            for(Object numero : uniones){
+                System.out.println("esta:" + numero);
+                
+            }
+        return resultadoString(uniones);
+        
         
     }
     
@@ -86,6 +114,12 @@ public class ConjuntosLista {
         if(conjuntoA.size() > conjuntoB.size()){
             for(Object numero : conjuntoB){
                 if(conjuntoA.contains(numero)){
+                    unido.add(numero);
+                }
+            }
+        }else{
+            for(Object numero : conjuntoA){
+                if(conjuntoB.contains(numero)){
                     unido.add(numero);
                 }
             }

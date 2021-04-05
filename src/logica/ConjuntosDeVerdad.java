@@ -79,36 +79,36 @@ public class ConjuntosDeVerdad {
         return resultado;
     }
     
-    public String union(){
-        boolean conjuntoResultado[] = new boolean[21];
-        System.out.println(conjuntoResultado);
-        for(int i=0;i<conjuntoA.length;i ++){
-            if(conjuntoA[i]){
-                if(!conjuntoResultado[i]){
-                System.out.println("entreee al A");
-                conjuntoResultado[i] = true;
-                }
-            }
-            
-        }
-        for(int i=0;i<conjuntoB.length;i ++){
-            if(conjuntoB[i]){
-                if(!conjuntoResultado[i]){
-                System.out.println("entreee al B");
-                conjuntoResultado[i] = true;
-                }
-            }
-        }
-        
-        return conjuntotoString(conjuntoResultado);
-    }
+//    public String union(){
+//        boolean conjuntoResultado[] = new boolean[21];
+//        System.out.println(conjuntoResultado);
+//        for(int i=0;i<conjuntoA.length;i ++){
+//            if(conjuntoA[i]){
+//                if(!conjuntoResultado[i]){
+//                System.out.println("entreee al A");
+//                conjuntoResultado[i] = true;
+//                }
+//            }
+//            
+//        }
+//        for(int i=0;i<conjuntoB.length;i ++){
+//            if(conjuntoB[i]){
+//                if(!conjuntoResultado[i]){
+//                System.out.println("entreee al B");
+//                conjuntoResultado[i] = true;
+//                }
+//            }
+//        }
+//        
+//        return conjuntotoString(conjuntoResultado);
+//    }
     
     public String interseccion(){
         return "";
     }
     
-    //usando or
-    public boolean[] arregloor(){
+    //UNION
+    public String arregloor(){
         boolean conjuntoresultado[]= new boolean[21];
         for(int i=0; i< conjuntoA.length;i++){
             if((conjuntoA[i]== true) || (conjuntoB[i]==true)){
@@ -117,9 +117,11 @@ public class ConjuntosDeVerdad {
                 conjuntoresultado[i]=false;
             }
         }
-        return conjuntoresultado;
+        return conjuntotoString(conjuntoresultado);
     }
-     public boolean[] arregloy(){
+    
+    // INTERSECCION
+     public String arregloy(){
         boolean conjuntoresultado[]= new boolean[21];
         for(int i=0; i< conjuntoA.length;i++){
             if((conjuntoA[i]== true) && (conjuntoB[i]==true)){
@@ -128,25 +130,25 @@ public class ConjuntosDeVerdad {
                 conjuntoresultado[i]=false;
             }
         }
-        return conjuntoresultado;
+        return conjuntotoString(conjuntoresultado);
     }
     
     
-    public int[] arreglopos(){
-        int[] resultado= new int[21];
-        boolean[] b2 = arregloor();
-        int contador=0;
-        for(int i=0;i<b2.length;i++){
-            if(b2[i]==true){
-                resultado[contador] = i;
-                
-                contador++;
-            }
-        }
-        
-        
-        return resultado;
-    }
+//    public int[] arreglopos(){
+//        int[] resultado= new int[21];
+//        boolean[] b2 = arregloor();
+//        int contador=0;
+//        for(int i=0;i<b2.length;i++){
+//            if(b2[i]==true){
+//                resultado[contador] = i;
+//                
+//                contador++;
+//            }
+//        }
+//        
+//        
+//        return resultado;
+//    }
     
     
     
