@@ -9,13 +9,13 @@ package logica;
  *
  * @author howl
  */
-public class ConjuntosDeVerdad {
+public class LogicaDeVerdad {
     
     
     private boolean conjuntoA[];
     private boolean conjuntoB[];
 
-    public ConjuntosDeVerdad() {
+    public LogicaDeVerdad() {
         conjuntoA = new boolean[21];
         conjuntoB = new boolean[21];
     }

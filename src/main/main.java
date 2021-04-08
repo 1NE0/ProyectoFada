@@ -8,9 +8,9 @@ package main;
 
 import interfaz.principalUI;
 import java.util.ArrayList;
-import logica.Conjuntobinario;
-import logica.ConjuntosDeVerdad;
-import logica.ConjuntosLista;
+import logica.LogicaBinaria;
+import logica.LogicaDeVerdad;
+import logica.LogicaLista;
 
 /**
  *
@@ -46,8 +46,8 @@ public class main {
 //       
 //       
 //       
-//       ConjuntosLista a = new ConjuntosLista(listaA);
-//        ConjuntosLista b = new ConjuntosLista(listab);
+//       LogicaLista a = new LogicaLista(listaA);
+//        LogicaLista b = new LogicaLista(listab);
 //        
 //        a.union(b.getConjuntoA());
 //        a.interseccion(b.getConjuntoA());

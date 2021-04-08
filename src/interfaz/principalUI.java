@@ -8,9 +8,9 @@ package interfaz;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import logica.Conjuntobinario;
-import logica.ConjuntosDeVerdad;
-import logica.ConjuntosLista;
+import logica.LogicaBinaria;
+import logica.LogicaDeVerdad;
+import logica.LogicaLista;
 
 /**
  *
@@ -24,19 +24,19 @@ public class principalUI extends javax.swing.JFrame {
     
     public ArrayList conjuntoA = new ArrayList();
     public ArrayList conjuntoB = new ArrayList(); 
-    ConjuntosLista logicaConjuntoLista;
-    ConjuntosLista logicaConjuntoListaB; //segundo conjuto de listas
-    ConjuntosDeVerdad logicaConjuntosDeVerdad;
-    Conjuntobinario logicaBinaria;
+    LogicaLista logicaConjuntoLista;
+    LogicaLista logicaConjuntoListaB; //segundo conjuto de listas
+    LogicaDeVerdad logicaConjuntosDeVerdad;
+    LogicaBinaria logicaBinaria;
     public principalUI() {
         initComponents();
         
         btnA.addActionListener(new addA());
         btnB.addActionListener(new addB());
-        logicaConjuntoLista = new ConjuntosLista(conjuntoA);
-        logicaConjuntoListaB = new ConjuntosLista(conjuntoB);
-        logicaConjuntosDeVerdad = new ConjuntosDeVerdad();
-        logicaBinaria = new Conjuntobinario();
+        logicaConjuntoLista = new LogicaLista(conjuntoA);
+        logicaConjuntoListaB = new LogicaLista(conjuntoB);
+        logicaConjuntosDeVerdad = new LogicaDeVerdad();
+        logicaBinaria = new LogicaBinaria();
     }
 
     /**
@@ -436,14 +436,18 @@ public class principalUI extends javax.swing.JFrame {
         
     }
     
+    
+    
+    
     private class addB implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent ae) {
             short numeroB = Short.parseShort(txtB.getText());
-            if(comboTipo.getSelectedIndex() == 0){
+            if(comboTipo.getSelectedIndex() == 0){  // CONJUNTOS COMO LISTAS
+                conjuntoB.add(numeroB);
                 logicaConjuntoListaB.addA(numeroB);
-                txtConjuntoB.setText(logicaConjuntoListaB.toStringA());
+                txtConjuntoB.setText(conjuntoB.toString());
                 
             }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
                 

@@ -11,13 +11,13 @@ import java.util.LinkedList;
  *
  * @author howl
  */
-public class ConjuntosLista {
+public class LogicaLista {
     
     
        private ArrayList conjuntoA;
        //private ArrayList conjuntoB;
 
-    public ConjuntosLista(ArrayList conjuntoA) {
+    public LogicaLista(ArrayList conjuntoA) {
         this.conjuntoA = conjuntoA;
         //this.conjuntoB = conjuntoB;
     }

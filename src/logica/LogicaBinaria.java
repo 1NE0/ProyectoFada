@@ -9,10 +9,10 @@ package logica;
  *
  * @author Amferu
  */
-public class Conjuntobinario {
+public class LogicaBinaria {
     private int a[];
 
-    public Conjuntobinario() {
+    public LogicaBinaria() {
      this.a=new int[16];
     }
     
