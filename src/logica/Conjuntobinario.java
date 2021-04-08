@@ -49,8 +49,16 @@ public class Conjuntobinario {
             for(int contador = 0 ; contador < (32 - resultadoParcialTamanio) ; contador++){
                 cerosPoner += "0";
             }
+            
+            System.out.println("cerosPones :" + cerosPoner);
+            
             resultado += cerosPoner + resultadoParcial;
         }
+        
+        System.out.println("resultado en binario : " + resultado);
+        
+       
+        System.out.println("posicion : "+convertidor(resultado));
         
     }
 
