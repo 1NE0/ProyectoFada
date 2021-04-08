@@ -28,8 +28,30 @@ public class main {
        
        principalUI principal = new principalUI();
        principal.setVisible(true);
+      
+       //ArrayList listaA = new ArrayList();
+       //listaA.add(1);
+       //listaA.add(2);
+       //listaA.add(3);
+       //listaA.add(4);
+       //listaA.add(5);
        
-       
+//        ArrayList listab = new ArrayList();
+//       listab.add(6);
+//       listab.add(2);
+//       listab.add(3);
+//       listab.add(4);
+//       listab.add(7);
+//       listab.add(8);
+//       
+//       
+//       
+//       ConjuntosLista a = new ConjuntosLista(listaA);
+//        ConjuntosLista b = new ConjuntosLista(listab);
+//        
+//        a.union(b.getConjuntoA());
+//        a.interseccion(b.getConjuntoA());
+        
     }
     
   

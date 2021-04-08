@@ -15,11 +15,11 @@ public class ConjuntosLista {
     
     
        private ArrayList conjuntoA;
-       private ArrayList conjuntoB;
+       //private ArrayList conjuntoB;
 
-    public ConjuntosLista(ArrayList conjuntoA, ArrayList conjuntoB) {
+    public ConjuntosLista(ArrayList conjuntoA) {
         this.conjuntoA = conjuntoA;
-        this.conjuntoB = conjuntoB;
+        //this.conjuntoB = conjuntoB;
     }
        
        
@@ -30,10 +30,10 @@ public class ConjuntosLista {
         conjuntoA.add(numero);
     }
     
-    public void addB(short numero){
-        System.out.println("AÑADIENDO EN B el numero : " + numero);
-        conjuntoB.add(numero);
-    }
+    //public void addB(short numero){
+      //  System.out.println("AÑADIENDO EN B el numero : " + numero);
+       //conjuntoB.add(numero);
+    //}
        
     public String toStringA(){
         String resultado = "";
@@ -56,20 +56,20 @@ public class ConjuntosLista {
         return resultado;
     }
     
-    public String toStringB(){
-        String resultado = "";
-        for(Object numero : conjuntoB) {
-            resultado += " " + numero + "";
-        }
-        return resultado;
-    }    
+    //public String toStringB(){
+      //  String resultado = "";
+        //for(Object numero : conjuntoB) {
+          //  resultado += " " + numero + "";
+        //}
+        //return resultado;
+    //}    
     
     
-    public String union(){
+    public String union( ArrayList arreglob){
         ArrayList uniones = new ArrayList();
         System.out.println("conjunto A: " + toStringA());
-        System.out.println("conjunto B: " + toStringB());
-        for(Object numero : conjuntoB){
+        //System.out.println("conjunto B: " + toStringB());
+        for(Object numero : arreglob){
             if(conjuntoA.contains(numero)&& !(uniones.contains(numero))){
                 uniones.add(numero);
                 System.out.println("se agrego:"+ numero);
@@ -97,6 +97,12 @@ public class ConjuntosLista {
         
         
     }
+
+    public ArrayList getConjuntoA() {
+        return conjuntoA;
+    }
+    
+    
     
     public String resultadoString (ArrayList arreglo){
         String resultado = "";
@@ -107,20 +113,22 @@ public class ConjuntosLista {
         return resultado;
     }
     
-    public String interseccion(){
+    public String interseccion(ArrayList arreglob){
         ArrayList unido = new ArrayList();
         System.out.println("conjunto A: " + toStringA());
-        System.out.println("conjunto B: " + toStringB());
-        if(conjuntoA.size() > conjuntoB.size()){
-            for(Object numero : conjuntoB){
+        //System.out.println("conjunto B: " + toStringB());
+        if(conjuntoA.size() > arreglob.size()){
+            for(Object numero : arreglob){
                 if(conjuntoA.contains(numero)){
                     unido.add(numero);
+                    System.out.println("se agrego:" + numero);
                 }
             }
         }else{
             for(Object numero : conjuntoA){
-                if(conjuntoB.contains(numero)){
+                if(arreglob.contains(numero)){
                     unido.add(numero);
+                    System.out.println("se agrego:" + numero);
                 }
             }
         }
@@ -128,3 +136,5 @@ public class ConjuntosLista {
         return resultadoString(unido);
     }
 }
+
+

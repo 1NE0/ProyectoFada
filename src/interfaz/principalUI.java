@@ -23,8 +23,9 @@ public class principalUI extends javax.swing.JFrame {
      */
     
     public ArrayList conjuntoA = new ArrayList();
-    public ArrayList conjuntoB = new ArrayList();
+    public ArrayList conjuntoB = new ArrayList(); 
     ConjuntosLista logicaConjuntoLista;
+    ConjuntosLista logicaConjuntoListaB; //segundo conjuto de listas
     ConjuntosDeVerdad logicaConjuntosDeVerdad;
     Conjuntobinario logicaBinaria;
     public principalUI() {
@@ -32,7 +33,8 @@ public class principalUI extends javax.swing.JFrame {
         
         btnA.addActionListener(new addA());
         btnB.addActionListener(new addB());
-        logicaConjuntoLista = new ConjuntosLista(conjuntoA, conjuntoB);
+        logicaConjuntoLista = new ConjuntosLista(conjuntoA);
+        logicaConjuntoListaB = new ConjuntosLista(conjuntoB);
         logicaConjuntosDeVerdad = new ConjuntosDeVerdad();
         logicaBinaria = new Conjuntobinario();
     }
@@ -440,6 +442,8 @@ public class principalUI extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent ae) {
             short numeroB = Short.parseShort(txtB.getText());
             if(comboTipo.getSelectedIndex() == 0){
+                logicaConjuntoListaB.addA(numeroB);
+                txtConjuntoB.setText(logicaConjuntoListaB.toStringA());
                 
             }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
                 
