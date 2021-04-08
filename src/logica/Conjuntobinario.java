@@ -11,11 +11,9 @@ package logica;
  */
 public class Conjuntobinario {
     private int a[];
-    private int b[];
 
     public Conjuntobinario() {
      this.a=new int[16];
-     this.b= new int [16];  
     }
     
     public String convertidor(String cadena){
@@ -55,15 +53,26 @@ public class Conjuntobinario {
         
     }
 
+    public String union (int b[]){
+        
+        
+        return "";
+    }
+    
     
     public int[] getA() {
         return a;
     }
 
-    public int[] getB() {
-        return b;
-    }
     
+    public String Atostring(){
+        String resultado = "";
+        for(int o : this.a){
+                resultado += Integer.toBinaryString(o);
+        }
+        
+        return convertidor(resultado);
+    }
     
     
  

@@ -75,6 +75,7 @@ public class principalUI extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txtInterseccion = new javax.swing.JLabel();
         comboTipo = new javax.swing.JComboBox<>();
+        btnResultado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -308,6 +309,8 @@ public class principalUI extends javax.swing.JFrame {
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "conjuntos como listas", "conjuntos con valores de verdad", "representacion binaria", " " }));
         comboTipo.setSelectedIndex(2);
 
+        btnResultado.setText("Resultado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -320,7 +323,8 @@ public class principalUI extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboTipo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(comboTipo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -333,7 +337,9 @@ public class principalUI extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnResultado)
+                .addGap(31, 31, 31)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -364,6 +370,7 @@ public class principalUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnA;
     private javax.swing.JButton btnB;
+    private javax.swing.JButton btnResultado;
     private javax.swing.JComboBox<String> comboTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -405,23 +412,19 @@ public class principalUI extends javax.swing.JFrame {
             if(comboTipo.getSelectedIndex() == 0){ // CONJUNTOS COMO LISTAS
                 logicaConjuntoLista.addA(numeroA);
                 txtConjuntoA.setText(logicaConjuntoLista.toStringA());
-                // actualizar 
-            
-                // union
-                //txtUnion.setText(logicaConjuntoLista.union());
-                // interseccion
-                txtInterseccion.setText(logicaConjuntoLista.interseccion());
-                txtUnion.setText(logicaConjuntoLista.union());
+                
+                
             }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
                 logicaConjuntosDeVerdad.addA(numeroA);
                 // MOSTRAR EL CONJUNTOA
                 txtConjuntoA.setText(logicaConjuntosDeVerdad.conjuntoAtoString());
                 
-                txtUnion.setText(logicaConjuntosDeVerdad.arregloor());
-                txtInterseccion.setText(logicaConjuntosDeVerdad.arregloy());
+                
             }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
                 logicaBinaria.agregarnum(numeroA);
                 // MOSTRAR EL CONJUNTOA
+                txtConjuntoA.setText(logicaBinaria.Atostring());
+                
             }
             
             
@@ -437,20 +440,9 @@ public class principalUI extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent ae) {
             short numeroB = Short.parseShort(txtB.getText());
             if(comboTipo.getSelectedIndex() == 0){
-                logicaConjuntoLista.addB(numeroB);
-                txtConjuntoB.setText(logicaConjuntoLista.toStringB());
-                // union
-                //txtUnion.setText(logicaConjuntoLista.union());
-                // interseccion
-                txtInterseccion.setText(logicaConjuntoLista.interseccion());
-                txtUnion.setText(logicaConjuntoLista.union());
-            }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
-                logicaConjuntosDeVerdad.addB(numeroB);
-                // MOSTRAR EL CONJUNTOA
-                txtConjuntoB.setText(logicaConjuntosDeVerdad.conjuntoBtoString());
                 
-                txtUnion.setText(logicaConjuntosDeVerdad.arregloor());
-                txtInterseccion.setText(logicaConjuntosDeVerdad.arregloy());
+            }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
+                
                 
             }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
                 
