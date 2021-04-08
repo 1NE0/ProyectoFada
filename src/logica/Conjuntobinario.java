@@ -21,21 +21,20 @@ public class Conjuntobinario {
         String resultado = "";
         
         for(int i = cadena.length(); i > 0;i--){
-            if(cadena.substring(i - 1).equals("1")){
-                System.out.println("entro al if");
-                resultado += contador;
-                resultado += " ";
-            }
+            if(cadena.charAt(i - 1) == '1'){
+                    resultado += contador;   // {1 2 3}
+                    resultado += " ";
+            }   
             contador++;
         }
         
-        return resultado;
+        return resultado;           // 4 = 0101         000000000000000000000000000001010 00000000000000000000000000000000 
     }
     
-    public void agregarnum(int a){
-        int posarreglo = a/32;
-        int pos= this.a[(this.a.length - posarreglo)-1];//[{0.0.0.0} {0.0.0.0} {0.0.0.0} {0.1.1.0} {0.0.0.0}]
-        int numeroanterior=pos;
+    public void agregarnum(int a){     // 00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000
+        int posarreglo = a/(32 + 1);   // sumarle el 1 de transaccion
+        int pos= this.a[(this.a.length - 1 ) - posarreglo];//[{0.0.0.0} {0.0.0.0} {0.0.0.0} {0.1.1.0} {0.0.0.0}]
+        int numeroanterior=pos;  // 00000000000000000000000000000000
         int desplazamientos= ((a%32)-1);
         this.a[(this.a.length -posarreglo)-1] = 1;///{{0.0.0.1}}
         this.a[(this.a.length -posarreglo)-1] = this.a[(this.a.length -posarreglo)-1] << desplazamientos;  
@@ -43,7 +42,8 @@ public class Conjuntobinario {
         
         String resultado = "";
         for(int o : this.a){
-                resultado += Integer.toBinaryString(o);
+            
+            resultado += (Integer.toBinaryString(o))+ "";
         }
         
         System.out.println("resultado en binario : " + resultado);
