@@ -42,14 +42,15 @@ public class Conjuntobinario {
         
         String resultado = "";
         for(int o : this.a){
-            
-            resultado += (Integer.toBinaryString(o))+ "";
+            String resultadoParcial = "";
+            resultadoParcial += (Integer.toBinaryString(o))+ "";
+            int resultadoParcialTamanio = resultadoParcial.length();
+            String cerosPoner = "";
+            for(int contador = 0 ; contador < (32 - resultadoParcialTamanio) ; contador++){
+                cerosPoner += "0";
+            }
+            resultado += cerosPoner + resultadoParcial;
         }
-        
-        System.out.println("resultado en binario : " + resultado);
-        
-       
-        System.out.println("posicion : "+convertidor(resultado));
         
     }
 
@@ -68,7 +69,16 @@ public class Conjuntobinario {
     public String Atostring(){
         String resultado = "";
         for(int o : this.a){
-                resultado += Integer.toBinaryString(o);
+            String resultadoParcial = "";
+            resultadoParcial += (Integer.toBinaryString(o))+ "";
+            int resultadoParcialTamanio = resultadoParcial.length();
+            String cerosPoner = "";
+            for(int contador = 0 ; contador < (32 - resultadoParcialTamanio) ; contador++){
+                cerosPoner += "0";
+            }
+            
+            
+            resultado += cerosPoner + resultadoParcial;
         }
         
         return convertidor(resultado);
