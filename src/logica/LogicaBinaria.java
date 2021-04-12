@@ -32,8 +32,7 @@ public class LogicaBinaria {
     }
     
     public void agregarnum(int a){     // 00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000
-        int posarreglo = a/32;   // 
-        System.out.println("el posarreglo es : " + posarreglo);
+        int posarreglo = a/32;
         int pos= this.a[posarreglo];//[{0.0.0.0} {0.0.0.0} {0.0.0.0} {0.1.1.0} {0.0.0.0}]
         int numeroanterior=pos;  // 00000000000000000000000000000000
         int desplazamientos= a%32;
@@ -66,15 +65,18 @@ public class LogicaBinaria {
 
     public String toString(){
         String cadena = "";
-        for(int i = 0 ; i < this.a.length; i++){
-            int uno = 1;
-            for(int j = 0; j < 32 ; j++ ){
-                int numeroActual = this.a[i];
-                int resultado = numeroActual & uno;
-                System.out.println("resultado es : " + resultado + "en la posicion :" + (j+1));
-                uno = uno << 1;
+        for(int i = 0 ; i < this.a.length; i++){  // RECORRER EL ARREGLO
+            int uno = 1;    // CREAMOS EL NUMERO 1, QUE ES EL QUE SE CORRERA 32 VECES
+            for(int j = 0; j < 32 ; j++ ){  // EL FOR PARA CORRER EL FOR HACIA <--- IZQUIERDA, 31 VECES
+                int numeroActual = this.a[i];   // 32 BITS A MIRAR
+                int resultado = numeroActual & uno;  // COMPARAMOS EL UNO CON ESTE NUMERO
+                int convertidor = (j+1) + (32*i);    // HACEMOS EL CONVERTIDOR DE LAS POSICIONES
+                
+                if(resultado == uno){       // SI EL RESULTADO DEVUELVE EL MISMO 1, QUIERE DECIR QUE "CONVERTIDOR" SE ENCUENTRA EN EL ARREGLO
+                    cadena += " " + convertidor;  // AGREGAR CONVERTIDOR A LA CADENA DE RESULTADO
+                }
+                uno = uno << 1;   // PASAMOS A LA SIGUIENTE POSICION
             }
-            System.out.println("/////////////////");
             
         }
         
