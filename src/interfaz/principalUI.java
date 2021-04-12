@@ -425,7 +425,6 @@ public class principalUI extends javax.swing.JFrame {
             }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
                 logicaBinaria.agregarnum(numeroA);
                 // MOSTRAR EL CONJUNTOA
-                txtConjuntoA.setText(logicaBinaria.Atostring());
                 
             }
             
