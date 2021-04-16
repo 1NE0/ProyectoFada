@@ -28,6 +28,7 @@ public class principalUI extends javax.swing.JFrame {
     LogicaLista logicaConjuntoListaB; //segundo conjuto de listas
     LogicaDeVerdad logicaConjuntosDeVerdad;
     LogicaBinaria logicaBinaria;
+    LogicaBinaria logicaBinariaB;
     public principalUI() {
         initComponents();
         
@@ -37,6 +38,7 @@ public class principalUI extends javax.swing.JFrame {
         logicaConjuntoListaB = new LogicaLista(conjuntoB);
         logicaConjuntosDeVerdad = new LogicaDeVerdad();
         logicaBinaria = new LogicaBinaria();
+        logicaBinariaB = new LogicaBinaria();
         
     }
 
@@ -454,9 +456,9 @@ public class principalUI extends javax.swing.JFrame {
                 
                 
             }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
-                 logicaBinaria.agregarnumb(numeroB);
+                 logicaBinariaB.agregarnum(numeroB);
                 // MOSTRAR EL CONJUNTOA
-                txtConjuntoB.setText(logicaBinaria.toString(logicaBinaria.getB()));
+                txtConjuntoB.setText(logicaBinariaB.toString(logicaBinaria.getA()));
             }
             
             

@@ -11,11 +11,11 @@ package logica;
  */
 public class LogicaBinaria {
     private int a[];
-    private int b[];
+    
 
     public LogicaBinaria() {
      this.a=new int[16];
-     this.b=new int[16];
+     
     }
     
     public String arreglo(String cadena){
@@ -52,37 +52,14 @@ public class LogicaBinaria {
       
         
         System.out.println("---------");
+    
         
     }
-    public void agregarnumb(int b){     // 00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000  00000000000000000000000000000000
-        int posarreglo = b/32;
-        int pos= this.b[posarreglo];//[{0.0.0.0} {0.0.0.0} {0.0.0.0} {0.1.1.0} {0.0.0.0}]
-        int numeroanterior=pos;  // 00000000000000000000000000000000
-        int desplazamientos= b%32;
-        this.b[posarreglo] = 1;///{{0.0.0.1}}
-        this.b[posarreglo] = this.b[posarreglo] << desplazamientos;  
-        this.b[posarreglo]= this.b[posarreglo]  | numeroanterior;
-        
-        
-//        for(int i = 0 ; i < this.a.length - 1 ; i++){
-//            System.out.println(this.a[i] + "auch");
-//        }
-        System.out.println("---------");
-        
-        System.out.println("la cadena en texto es : " +  this.toString(this.b));
-        
-        System.out.println("---------");
-     this.union();
-     this.interseccion();
-     this.complemento();
    
-    }
 
     
     
-     public int[] getB() {
-        return b;
-    }
+    
 
     public int[] getA() {
         return a;
@@ -137,10 +114,10 @@ public class LogicaBinaria {
     
     
     //Union 
-    public String union (){
+    public String union (int b[]){
         int arreglounion[]= new int[16];
         for(int i =0; i<16 ; i++){
-            arreglounion[i]=this.a[i] | this.b[i];
+            arreglounion[i]=this.a[i] | b[i];
             
         }
         
@@ -150,10 +127,10 @@ public class LogicaBinaria {
     }
     
     
-    public String interseccion(){
+    public String interseccion(int b[]){
         int arreglounion[]= new int[16];
         for(int i =0; i<16 ; i++){
-            arreglounion[i]=this.a[i] & this.b[i];
+            arreglounion[i]=this.a[i] & b[i];
             
         }
         
