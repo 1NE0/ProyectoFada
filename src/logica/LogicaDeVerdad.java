@@ -133,7 +133,16 @@ public class LogicaDeVerdad {
         return conjuntotoString(conjuntoresultado);
     }
     
-    
+    public String complemento(){
+        boolean conjuntoresultado[]= new boolean[21];
+        for(int i=0; i<conjuntoA.length;i++){
+            if(conjuntoA[i]==false){
+                conjuntoresultado[i]=true;
+            }
+        }
+        System.out.println(conjuntotoString(conjuntoresultado));
+        return conjuntotoString(conjuntoresultado);
+    }
 //    public int[] arreglopos(){
 //        int[] resultado= new int[21];
 //        boolean[] b2 = arregloor();
