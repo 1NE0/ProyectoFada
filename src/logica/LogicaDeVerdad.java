@@ -13,11 +13,11 @@ public class LogicaDeVerdad {
     
     
     private boolean conjuntoA[];
-    private boolean conjuntoB[];
+   // private boolean conjuntoB[];
 
     public LogicaDeVerdad() {
         conjuntoA = new boolean[21];
-        conjuntoB = new boolean[21];
+       // conjuntoB = new boolean[21];
     }
     
     
@@ -26,17 +26,17 @@ public class LogicaDeVerdad {
         return conjuntoA;
     }
 
-    public boolean[] getConjuntoB() {
-        return conjuntoB;
-    }
+//    public boolean[] getConjuntoB() {
+//        return conjuntoB;
+//    }
     
     public void addA(short numero){
         conjuntoA[numero] = true;
     }
     
-    public void addB(short numero){
-        conjuntoB[numero] = true;
-    }
+//    public void addB(short numero){
+//        conjuntoB[numero] = true;
+//    }
     
     public String conjuntotoString(boolean conjunto[]){
         
@@ -65,19 +65,19 @@ public class LogicaDeVerdad {
         
         return resultado;
     }
-    public String conjuntoBtoString(){
-        
-        String resultado = "";
-        for(int i=0;i<conjuntoB.length;i++){
-            if(conjuntoB[i]){
-                // SE ENCUENTRA ALGUN NUMERO AQUI
-                resultado += " " + i + "";
-            }else{
-            }
-        }
-        
-        return resultado;
-    }
+//    public String conjuntoBtoString(){
+//        
+//        String resultado = "";
+//        for(int i=0;i<conjuntoB.length;i++){
+//            if(conjuntoB[i]){
+//                // SE ENCUENTRA ALGUN NUMERO AQUI
+//                resultado += " " + i + "";
+//            }else{
+//            }
+//        }
+//        
+//        return resultado;
+//    }
     
 //    public String union(){
 //        boolean conjuntoResultado[] = new boolean[21];
@@ -108,10 +108,10 @@ public class LogicaDeVerdad {
     }
     
     //UNION
-    public String arregloor(){
+    public String arregloor(boolean B[]){
         boolean conjuntoresultado[]= new boolean[21];
         for(int i=0; i< conjuntoA.length;i++){
-            if((conjuntoA[i]== true) || (conjuntoB[i]==true)){
+            if((conjuntoA[i]== true) || (B[i]==true)){
                 conjuntoresultado[i]=true;
             }else{
                 conjuntoresultado[i]=false;
@@ -121,10 +121,10 @@ public class LogicaDeVerdad {
     }
     
     // INTERSECCION
-     public String arregloy(){
+     public String arregloy(boolean B[]){
         boolean conjuntoresultado[]= new boolean[21];
         for(int i=0; i< conjuntoA.length;i++){
-            if((conjuntoA[i]== true) && (conjuntoB[i]==true)){
+            if((conjuntoA[i]== true) && (B[i]==true)){
                 conjuntoresultado[i]=true;
             }else{
                 conjuntoresultado[i]=false;

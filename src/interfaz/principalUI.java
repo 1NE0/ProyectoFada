@@ -27,6 +27,7 @@ public class principalUI extends javax.swing.JFrame {
     LogicaLista logicaConjuntoLista;
     LogicaLista logicaConjuntoListaB; //segundo conjuto de listas
     LogicaDeVerdad logicaConjuntosDeVerdad;
+    LogicaDeVerdad logicaConjuntosDeVerdadB;
     LogicaBinaria logicaBinaria;
     LogicaBinaria logicaBinariaB;
     public principalUI() {
@@ -34,9 +35,11 @@ public class principalUI extends javax.swing.JFrame {
         
         btnA.addActionListener(new addA());
         btnB.addActionListener(new addB());
+        btnResultado.addActionListener(new resultado());
         logicaConjuntoLista = new LogicaLista(conjuntoA);
         logicaConjuntoListaB = new LogicaLista(conjuntoB);
         logicaConjuntosDeVerdad = new LogicaDeVerdad();
+        logicaConjuntosDeVerdadB = new LogicaDeVerdad();
         logicaBinaria = new LogicaBinaria();
         logicaBinariaB = new LogicaBinaria();
         
@@ -79,6 +82,7 @@ public class principalUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtInterseccion = new javax.swing.JLabel();
+        jScrollBar1 = new javax.swing.JScrollBar();
         comboTipo = new javax.swing.JComboBox<>();
         btnResultado = new javax.swing.JButton();
 
@@ -284,20 +288,27 @@ public class principalUI extends javax.swing.JFrame {
 
         txtInterseccion.setText("resultado interseccion");
 
+        jScrollBar1.setOrientation(javax.swing.JScrollBar.HORIZONTAL);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel13)
                 .addGap(61, 61, 61)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
-                .addComponent(txtInterseccion)
-                .addGap(133, 133, 133)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                        .addComponent(txtInterseccion)
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(102, 102, 102))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,6 +319,8 @@ public class principalUI extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jLabel15)
                     .addComponent(txtInterseccion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -348,7 +361,7 @@ public class principalUI extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
@@ -397,6 +410,7 @@ public class principalUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JTextField txtA;
     private javax.swing.JTextField txtB;
     private javax.swing.JLabel txtConjuntoA;
@@ -417,18 +431,24 @@ public class principalUI extends javax.swing.JFrame {
             if(comboTipo.getSelectedIndex() == 0){ // CONJUNTOS COMO LISTAS
                 logicaConjuntoLista.addA(numeroA);
                 txtConjuntoA.setText(logicaConjuntoLista.toStringA());
+                txtA.setText("");
+                
                 
                 
             }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
                 logicaConjuntosDeVerdad.addA(numeroA);
                 // MOSTRAR EL CONJUNTOA
                 txtConjuntoA.setText(logicaConjuntosDeVerdad.conjuntoAtoString());
+                txtA.setText("");
+                
                 
                 
             }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
                 logicaBinaria.agregarnum(numeroA);
                 // MOSTRAR EL CONJUNTOA
                 txtConjuntoA.setText(logicaBinaria.toString(logicaBinaria.getA()));
+                txtA.setText("");
+                
                 
             }
             
@@ -448,17 +468,51 @@ public class principalUI extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent ae) {
             short numeroB = Short.parseShort(txtB.getText());
             if(comboTipo.getSelectedIndex() == 0){  // CONJUNTOS COMO LISTAS
-                conjuntoB.add(numeroB);
+                
                 logicaConjuntoListaB.addA(numeroB);
-                txtConjuntoB.setText(conjuntoB.toString());
+                txtConjuntoB.setText(logicaConjuntoListaB.toStringA());
+                txtB.setText("");
+                
                 
             }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
+                logicaConjuntosDeVerdadB.addA(numeroB);
+                // MOSTRAR EL CONJUNTOA
+                txtConjuntoB.setText(logicaConjuntosDeVerdadB.conjuntoAtoString());
+                txtB.setText("");
                 
                 
             }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
                  logicaBinariaB.agregarnum(numeroB);
                 // MOSTRAR EL CONJUNTOA
-                txtConjuntoB.setText(logicaBinariaB.toString(logicaBinaria.getA()));
+                txtConjuntoB.setText(logicaBinariaB.toString(logicaBinariaB.getA()));
+                txtB.setText("");
+                
+            }
+            
+            
+        }
+        
+    }
+    
+    
+    private class resultado implements ActionListener{
+         @Override
+        public void actionPerformed(ActionEvent ae) {
+             if(comboTipo.getSelectedIndex() == 0){  // CONJUNTOS COMO LISTAS
+                 txtUnion.setText(logicaConjuntoLista.union(logicaConjuntoListaB.getConjuntoA()));
+                 txtInterseccion.setText(logicaConjuntoLista.interseccion(logicaConjuntoListaB.getConjuntoA()));
+               
+                
+            }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
+                txtUnion.setText(logicaConjuntosDeVerdad.arregloor(logicaConjuntosDeVerdadB.getConjuntoA()));
+                txtInterseccion.setText(logicaConjuntosDeVerdad.arregloy(logicaConjuntosDeVerdadB.getConjuntoA()));
+                
+            }else if(comboTipo.getSelectedIndex() == 2){ // CONJUNTOS CON BINARIOS
+                txtUnion.setText(logicaBinaria.union(logicaBinariaB.getA()));
+                txtInterseccion.setText(logicaBinaria.interseccion(logicaBinariaB.getA()));
+               // txtcomplemento.setText(logicaBinaria.complemento());
+                
+
             }
             
             
