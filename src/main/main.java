@@ -23,8 +23,34 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        
+//         LogicaBinaria a =new LogicaBinaria();
+//       for(int i=0; i<500;i++){
+//           a.agregarnum(i);
+//       }
+//                 
+//                 
+//                 
+//         
+//         
+//        LogicaBinaria b =new LogicaBinaria();
+//      for(int i=0; i<500;i++){
+//           b.agregarnum(i);
+//       }
+//                 
+//        
+//              
+//        
+//        long inicio = System.currentTimeMillis();      
+//        b.union(a.getA());
+//   
+//        
+//          
+//         
+//        long fin = System.currentTimeMillis();
+//         
+//        double tiempo = (double) ((fin - inicio));
+//         
+//        System.out.println(tiempo +" milisegundos");
        
        principalUI principal = new principalUI();
        principal.setVisible(true);

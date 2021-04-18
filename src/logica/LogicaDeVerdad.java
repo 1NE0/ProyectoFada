@@ -114,7 +114,7 @@ public class LogicaDeVerdad {
             if((conjuntoA[i]== true) || (B[i]==true)){
                 conjuntoresultado[i]=true;
             }else{
-                conjuntoresultado[i]=false;
+               
             }
         }
         return conjuntotoString(conjuntoresultado);
@@ -127,7 +127,7 @@ public class LogicaDeVerdad {
             if((conjuntoA[i]== true) && (B[i]==true)){
                 conjuntoresultado[i]=true;
             }else{
-                conjuntoresultado[i]=false;
+               
             }
         }
         return conjuntotoString(conjuntoresultado);

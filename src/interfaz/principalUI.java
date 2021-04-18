@@ -539,7 +539,7 @@ public class principalUI extends javax.swing.JFrame {
              if(comboTipo.getSelectedIndex() == 0){  // CONJUNTOS COMO LISTAS
                  txtUnion.setText(logicaConjuntoLista.union(logicaConjuntoListaB.getConjuntoA()));
                  txtInterseccion.setText(logicaConjuntoLista.interseccion(logicaConjuntoListaB.getConjuntoA()));
-               
+                 txtcomplemento.setText(logicaConjuntoLista.complemento());
                 
             }else if(comboTipo.getSelectedIndex() == 1){ // CONJUNTOS CON VALORES DE VERDAD
                 txtUnion.setText(logicaConjuntosDeVerdad.arregloor(logicaConjuntosDeVerdadB.getConjuntoA()));
