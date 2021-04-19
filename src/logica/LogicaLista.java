@@ -133,7 +133,7 @@ public class LogicaLista {
     public String complemento() {
         String resultado = "";
         for (int j = 0; j < 512; j++) {
-            if (this.conjuntoA.contains(j)) {
+            if (!this.conjuntoA.contains((short)j)) {
                 resultado += " " + j;
             }
         }
